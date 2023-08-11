@@ -1,4 +1,11 @@
-import { Dispatch, FC, ReactNode, SetStateAction, useEffect } from "react"
+import {
+  Dispatch,
+  FC,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useRef,
+} from "react"
 import { AiOutlineCloseCircle } from "react-icons/ai"
 
 type ModalProps = {
@@ -8,6 +15,8 @@ type ModalProps = {
 }
 
 const Modal: FC<ModalProps> = ({ children, showModal, isModalShown }) => {
+  const backdrop = useRef(null)
+
   useEffect(() => {
     window.addEventListener(
       "keydown",
@@ -20,11 +29,21 @@ const Modal: FC<ModalProps> = ({ children, showModal, isModalShown }) => {
     )
   })
 
+  const onBackdropClick = () => {
+    showModal(false)
+  }
+
   return (
     <>
       {isModalShown && (
-        <div className="h-full grid place-items-center w-full absolute top-0 left-0 bg-black/50">
-          <div className="px-4 w-full relative sm:max-w-lg">
+        <div
+          onClick={onBackdropClick}
+          className="h-full grid place-items-center w-full absolute top-0 left-0 bg-black/50"
+        >
+          <div
+            className="px-4 w-full relative sm:max-w-lg "
+            onClick={(evt) => evt.stopPropagation()}
+          >
             {children}
             <button
               onClick={() => showModal(false)}

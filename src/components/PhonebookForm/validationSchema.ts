@@ -12,10 +12,7 @@ const validationSchema = yup.object().shape({
   number: yup
     .string()
     .required("Phone is required")
-    .matches(
-      /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
-      "Invalid phone format",
-    ),
+    .matches(/^\+380\s\d{2}\s\d{3}\s\d{2}\s\d{2}$/, "Invalid phone format"),
 })
 
 export default validationSchema

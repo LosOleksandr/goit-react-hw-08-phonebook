@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply w-full h-screen dark:text-orange-900 text-yellow-100  bg-no-repeat bg-fixed bg-gradient-to-b from-orange-50 to-orange-200 dark:from-gray-700 dark:to-gray-900;
+    @apply w-full h-screen dark:text-emerald-500 text-yellow-900 bg-no-repeat bg-fixed bg-gradient-to-b from-orange-50 to-orange-200 dark:from-gray-700 dark:to-gray-900;
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -16,6 +16,7 @@
   #root {
     @apply w-full h-screen;
   }
+
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -33,4 +34,34 @@
   }
 
   /* Handle on hover */
+}
+
+@layer components {
+  .auth-form {
+    @apply w-full flex flex-col gap-3 max-w-lg px-12 pt-12 pb-6 border-2 rounded-3xl  border-yellow-900 dark:text-emerald-500 dark:border-emerald-500;
+  }
+  .main-title {
+    @apply text-4xl text-center font-bold;
+  }
+  .secondary-title {
+    @apply text-2xl text-center font-semibold;
+  }
+  .reversed-color {
+    @apply text-yellow-100 dark:text-emerald-500;
+  }
+  .form-label {
+    @apply font-medium mb-2;
+  }
+  .phone-input {
+    @apply w-full  border-2 border-yellow-700 dark:border-emerald-700  placeholder-yellow-900/80 dark:placeholder-emerald-500/80 rounded-lg mt-1 h-11 outline-none bg-transparent focus:bg-yellow-600/40 dark:focus:bg-emerald-600/40 focus:border-yellow-600/40 dark:focus:border-emerald-900 transition-colors !important;
+  }
+  .phone-input-button {
+    @apply bg-yellow-900  dark:bg-emerald-500  border-2 border-r-0 border-yellow-900 dark:border-emerald-500 rounded-l-lg !important;
+  }
+  .phone-dropdown-container {
+    @apply bg-yellow-200 dark:bg-gray-900 !important;
+  }
+  .phone-input-search {
+    @apply bg-yellow-300 dark:bg-gray-800 !important;
+  }
 }

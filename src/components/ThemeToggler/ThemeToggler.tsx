@@ -1,6 +1,7 @@
-import { setTheme } from "@app/ThemeSlice"
+import { setTheme } from "@app/slices/ThemeSlice"
 import { useAppDispatch, useAppSelector } from "@app/hooks"
 import { selectTheme } from "@app/selectors"
+import Button from "@components/Button/Button"
 import { BiSun, BiMoon } from "react-icons/bi"
 
 const ThemeToggler = () => {
@@ -14,8 +15,10 @@ const ThemeToggler = () => {
   }
 
   return (
-    <button
-      className="absolute top-4 right-4 border-2 bg-yellow-700 border-yellow-800 text-yellow-100 p-2 rounded-full "
+    <Button
+      className=""
+      size="rounded"
+      variant="primary"
       onClick={toggleTheme}
       type="button"
     >
@@ -24,7 +27,7 @@ const ThemeToggler = () => {
       ) : (
         <BiMoon size={"1.5rem"} />
       )}
-    </button>
+    </Button>
   )
 }
 

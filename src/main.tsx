@@ -4,24 +4,8 @@ import { Provider } from "react-redux"
 import { PersistGate } from "redux-persist/integration/react"
 import { store, persistor } from "@app/store"
 import "./index.css"
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom"
-import Home from "@pages/Home"
-import Phonebook from "@pages/Phonebook"
-import Layout from "@components/Layout/Layout"
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-      <Route path="phonebook" element={<Phonebook />} />
-    </Route>,
-  ),
-)
+import { RouterProvider } from "react-router-dom"
+import router from "./routes/router"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

@@ -1,11 +1,20 @@
-import { Contact } from "@interface/contacts"
+import { Contact } from "@interface/contact"
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { RootState } from "../store"
 
 export const contactsApi = createApi({
   reducerPath: "contactsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://64bc0c897b33a35a4446f943.mockapi.io/phonebook/v1/",
+    baseUrl: "https://connections-api.herokuapp.com",
+    prepareHeaders: (headers, { getState }) => {
+      const token = (getState() as RootState).auth.token
+      if (token) {
+        headers.set("authorization", `Bearer ${token}`)
+      }
+      return headers
+    },
   }),
+
   tagTypes: ["Contacts"],
   endpoints: (builder) => ({
     getContacts: builder.query<Contact[], void>({
