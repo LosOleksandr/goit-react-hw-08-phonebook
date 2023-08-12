@@ -32,7 +32,13 @@ const SidebarList = () => {
         </button>
         <div className="overflow-auto px-3 h-full scroll-smooth scroll-m-4">
           <h2 className="secondary-title reversed-color mb-4">Your contacts</h2>
-          {token ? <Filter /> : <p className="text-center text-xl translate-y-2/4 ">Sorry, you need to Log In to see your contacts.</p>}
+          {token ? (
+            <Filter />
+          ) : (
+            <p className="text-center text-xl reversed-color translate-y-2/4 ">
+              Sorry, you need to Log In to see your contacts.
+            </p>
+          )}
           {token ? (
             !isHidden && <ContactsList />
           ) : (

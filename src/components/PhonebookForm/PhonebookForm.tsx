@@ -29,7 +29,6 @@ const PhonebookForm = () => {
   const onSubmit: SubmitHandler<PhonebookFormFields> = (
     data: PhonebookFormFields,
   ) => {
-    console.log("data: ", data)
     addContact(data).then(() => toast.success("Contact was added"))
     reset()
   }

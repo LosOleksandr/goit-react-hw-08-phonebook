@@ -42,6 +42,7 @@ const Layout = () => {
             onClick={() => {
               logout(token)
               dispatch(setCredentials({ user: null, token: null }))
+              window.location.reload()
             }}
             variant="primary"
             size="sm"
